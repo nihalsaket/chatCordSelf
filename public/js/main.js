@@ -29,6 +29,13 @@ socket.on('servermessage',message=>{
 
 });
 
+//User List Updated sent by Server
+
+socket.on('listusers',list=>{
+    const userNameList= Object.values(list);
+    console.log(userNameList);
+});
+
 //Message submit
 
 chatForm.addEventListener('submit',(e)=>{
@@ -50,6 +57,17 @@ chatForm.addEventListener('submit',(e)=>{
 function outputMessage(message){
     const div = document.createElement('div');
     div.classList.add('message');
+
+    if(message.sender==username)
+    {
+        div.classList.add('user-message');
+    } else {
+        div.classList.add('friend-message');
+    }
+
+
+
+
     div.innerHTML=`<p class="meta">${message.sender} <span>${getLocalTime()}</span></p>
 <p class="text">${message.message}</p>`;
 
@@ -59,6 +77,7 @@ function outputMessage(message){
 function outputServerMessage(message){
     const div = document.createElement('div');
     div.classList.add('message');
+    div.classList.add('server-message');
     div.innerHTML=`<p class="meta">Server <span>${getLocalTime()}</span></p>
 <p class="text">${message}</p>`;
 

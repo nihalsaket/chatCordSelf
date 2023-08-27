@@ -29,6 +29,7 @@ io.on('connection',socket=>{
         //Broadcast when a user joins
         socket.broadcast.emit('servermessage',`${receivedUsername} has joined the chat`);
         console.log(connectedUsers);
+        socket.emit('listusers',connectedUsers);
 
     });
 

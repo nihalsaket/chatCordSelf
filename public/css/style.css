@@ -98,6 +98,24 @@ a {
 	border-radius: 5px;
 }
 
+.chat-messages .message.user-message{
+	align-self: flex-end !important;
+	background-color: var(--dark-color-a);
+	color: white;
+}
+
+.chat-messages .message.friend-message{
+	align-self: flex-start !important;
+	background-color: var(--light-color);
+	color: black;
+}
+
+.chat-messages .message.server-message{
+	align-self: center !important;
+	background-color: var(--light-color);
+	color: var(--dark-color-b);
+}
+
 .chat-messages .message .meta {
 	font-size: 15px;
 	font-weight: bold;

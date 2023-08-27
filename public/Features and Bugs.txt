@@ -1,5 +1,5 @@
-1. There is no difference between message received and message sent
-2. Name is not passed with message of the user
+1. There is no difference between message received and message sent (done but can be updated a bit more)
+2. Name is not passed with message of the user (done)
 3. Users list is not getting updated.
    Array of users need to be maintained
    Something needs to be emitted by server when the array is updated
