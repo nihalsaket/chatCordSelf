@@ -10,23 +10,42 @@ const io = socketio(server);
 //Set static folder
 app.use(express.static(path.join(__dirname,'public')));
 
+const connectedUsers={};
+
 
 //Run when client connects
+//'connection' is a predefined event in socket.io library
 io.on('connection',socket=>{
     console.log('New WS connection');
 
-    socket.emit('message','Welcome to Chatcord');
+    socket.on('username',receivedUsername=>{
+        console.log('Received Username: ',receivedUsername);
+        connectedUsers[socket.id] = receivedUsername;
 
-    //Broadcast when a user joins
+        //'servermessage' is an arbitrary event defined by coder
 
-    socket.broadcast.emit('message','A user has joined the chat');
+        socket.emit('servermessage',`Welcome to Chatcord, ${receivedUsername}!`);
+
+        //Broadcast when a user joins
+        socket.broadcast.emit('servermessage',`${receivedUsername} has joined the chat`);
+        console.log(connectedUsers);
+
+    });
+
 
     //Runs when clien disconnects
 
     socket.on('disconnect',()=>{
-        io.emit('message','A user has left the chat');
+        // Remove the username from the connected users object
+        const username = connectedUsers[socket.id];
+        delete connectedUsers[socket.id];
+        if (username) {
+            io.emit('message', `${username} has left the chat`);
+        }
 
     });
+
+
 
     //Listen for chat message
     socket.on('chatMessage',(msg)=>{
