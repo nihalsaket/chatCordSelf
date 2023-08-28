@@ -8,6 +8,18 @@
 
 
 4. Secret key for entry
-5. Remove Room name
-6. Better color theme
+5. Remove Room name (done)
+6. Better color theme (pictures)
 7.
+
+
+
+Backlog:
+1. Locally store history of chat for last one day
+2. Offline message to a user
+3. Online offline status (user state management)
+4. Reactions
+5. Push notification of chat received
+6. Image sharing
+7. Video call (very tricky but try)
+8. Sign in flow - authentication
