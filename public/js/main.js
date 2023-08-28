@@ -34,6 +34,7 @@ socket.on('servermessage',message=>{
 socket.on('listusers',list=>{
     const userNameList= Object.values(list);
     console.log(userNameList);
+    updateUserNamesList(userNameList);
 });
 
 //Message submit
@@ -50,6 +51,10 @@ chatForm.addEventListener('submit',(e)=>{
     e.target.elements.msg.value = '';
     e.target.elements.msg.focus();
 });
+
+
+
+
 
 
 
@@ -86,14 +91,24 @@ function outputServerMessage(message){
 
 
 
-//function to pull username from form
+//function to update list of usernames
+function updateUserNamesList(list){
 
+    const userList = document.getElementById("users");
+    userList.textContent='';
 
+    for (const name of list)
+    {
+        console.log('name in array is',name);
+        const li = document.createElement('li');
+        li.textContent=name;
+        userList.appendChild(li);
+    }
+}
 
 //function to update the username to the other person
 
 //function to get local time
-
 function getLocalTime() {
     const now = new Date();
     const options = { hour: 'numeric', minute: 'numeric'};

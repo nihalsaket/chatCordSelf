@@ -1,7 +1,13 @@
 1. There is no difference between message received and message sent (done but can be updated a bit more)
 2. Name is not passed with message of the user (done)
-3. Users list is not getting updated.
+
+3. Users list is not getting updated. (done)
    Array of users need to be maintained
    Something needs to be emitted by server when the array is updated
 
-4.
+
+
+4. Secret key for entry
+5. Remove Room name
+6. Better color theme
+7.
