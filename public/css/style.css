@@ -34,6 +34,16 @@ a {
 	padding: 5px 15px;
 	background: var(--light-color);
 	color: var(--dark-color-a);
+	border-radius: 20px;
+	font-size: 17px;
+	height: 40px;
+	margin-left: auto;
+}
+.leavebtn {
+	cursor: pointer;
+	padding: 5px 15px;
+	background: var(--light-color);
+	color: var(--dark-color-a);
 	border: 0;
 	font-size: 17px;
 }
@@ -128,6 +138,12 @@ a {
 	color: #777;
 }
 
+.chat-messages .message img {
+	max-width: 100%; /* Ensure images don't exceed their container */
+	border-radius: 5px; /* Apply a border radius to images */
+	margin: 5px 0; /* Add some spacing around images */
+}
+
 .chat-form-container {
 	padding: 20px 30px;
 	background-color: var(--dark-color-a);
@@ -142,6 +158,8 @@ a {
 	padding: 5px;
 	height: 40px;
 	flex: 1;
+	border-radius: 30px;
+	border: 1px solid #ccc;
 }
 
 /* Join Page */
