@@ -191,3 +191,16 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
         console.error('Error accessing the camera:', error);
     }
 });
+
+
+//Event listener for GIFs button
+document.getElementById('gif').addEventListener('click', function () {
+    console.log('gif click listener worked');
+    // Call the createGiphyComponents function from giphy.js
+    // createGiphyComponents();
+    // console.log(document.getElementById('dynamic-content'));
+    document.getElementById('giphy-components').style.display='flex';
+
+
+
+});

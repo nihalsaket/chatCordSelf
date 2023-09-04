@@ -11,7 +11,7 @@
   <div class="chat-container">
     <header class="chat-header">
       <h1><i class="fas fa-smile"></i> ChatCord</h1>
-      <a href="index.html" class="leavebtn" id="leavebutton">Leave Room</a>
+      <a href="index.html" class="bigbutton" id="leavebutton">Leave Room</a>
     </header>
     <main class="chat-main">
       <div class="chat-sidebar">
@@ -42,9 +42,20 @@
       </form>
     </div>
   </div>
-
+  <div id="giphy-components">
+    <section>
+      <h3 id="banner">Giphy JS Components</h3>
+      <h4>Search Gif</h4>
+      <div id="gif"></div>
+      <input type="text" id="search-input" placeholder="Enter your search term" required="" spellcheck="false" data-ms-editor="true">
+      <button id="search" class="bigbutton">Search</button>
+      <br><br>
+      <div id="result"></div>
+    </section>
+  </div>
 
   <script src="/socket.io/socket.io.js"></script>
+  <script src="js/giphy.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

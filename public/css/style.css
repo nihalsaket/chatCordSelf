@@ -39,13 +39,14 @@ a {
 	height: 40px;
 	margin-left: auto;
 }
-.leavebtn {
+.bigbutton {
 	cursor: pointer;
 	padding: 5px 15px;
 	background: var(--light-color);
 	color: var(--dark-color-a);
 	border: 0;
 	font-size: 17px;
+	border-radius: 20px;
 }
 
 /* Chat Page */
@@ -251,4 +252,71 @@ a {
 	font-size: 17px;
 }
 
+#giphy-components {
+	z-index: 999;
+	background: black;
+	margin: 150px 0 0 0;
+	padding: 0;
+	color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/*justify-content: center; !* Center horizontally *!*/
+	/*align-items: center; !* Center vertically *!*/
+	display: none;
+	height: calc(100% - 0px); /* Set a fixed height, adjust as needed */
+	overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+#result{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(auto, 200px)); /* Adjust minmax width as needed */
+	gap: 10px; /* Adjust gap between images as needed */
+	justify-items: center; /* Center content horizontally within each grid cell */
+	align-items: center; /* Center content vertically within each grid cell */
+	padding: 20px; /* Add padding to separate from the search box */
+
+}
+
+#result{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center; /* Center content vertically within each grid cell */
+	padding: 20px; /* Add padding to separate from the search box */
+	gap: 10px;
+
+}
+
+
+#result img{
+	width: 100%;
+	max-width: 100%;
+	/*padding-top: 100%; !* Maintain a 1:1 aspect ratio (square) *!*/
+	background-size: cover; /* Zoom and crop the background image to fill the container */
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+/* Style the search box and button */
+#search-input {
+	width: 80%;
+	padding: 10px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid white;
+	background: transparent;
+	color: white;
+}
+
+#search {
+	padding: 10px 20px;
+	background: var(--dark-color-a);
+	color: var(--light-color);
+	border: 0;
+	font-size: 18px;
+	cursor: pointer;
+}
 
