@@ -133,14 +133,43 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         const track = stream.getVideoTracks()[0];
 
-        // Capture a photo from the camera stream
-        const imageCapture = new ImageCapture(track);
-        const photoBlob = await imageCapture.takePhoto();
+        // Create a video element to display the live camera feed
+        const video = document.createElement('video');
+        video.id='camera-feed';
+        video.srcObject = new MediaStream([track]);
+        video.play();
 
-        // Convert the photo Blob to a data URL
-        const reader = new FileReader();
-        reader.onload = function () {
-            const imageDataURL = reader.result;
+        // Create a canvas element to capture the image
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+
+        // Append the video element to the DOM so the user can see the camera feed
+        document.body.appendChild(video);
+
+        // Wait for the video to be loaded (you may want to add an event listener)
+        await new Promise((resolve) => (video.onloadedmetadata = resolve));
+
+        // Display the video feed to the user
+        video.style.display = 'block';
+
+        // Create a "Capture" button
+        const captureButton = document.createElement('button');
+        captureButton.id='captureButton';
+        captureButton.classList.add('leavebtn');
+        captureButton.textContent = 'Capture';
+        document.body.appendChild(captureButton);
+
+        // Event listener for capturing the image
+        captureButton.addEventListener('click', () => {
+            // Set the canvas dimensions to match the video
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+
+            // Draw the current video frame onto the canvas
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Convert the captured image to a data URL
+            const imageDataURL = canvas.toDataURL('image/jpeg'); // Adjust format as needed
 
             // Send the image as a chat message
             socket.emit('chatMessage', {
@@ -149,11 +178,15 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
                 messageType: 'image',
             });
 
-            // Stop the camera stream
-            track.stop();
-        };
+            //Stops the camera after the click takes place
+            stream.getTracks().forEach((track) => track.stop());
+            video.style.display='none';
 
-        reader.readAsDataURL(photoBlob);
+
+            // Remove the video and capture button (optional)
+            video.remove();
+            captureButton.remove();
+        });
     } catch (error) {
         console.error('Error accessing the camera:', error);
     }

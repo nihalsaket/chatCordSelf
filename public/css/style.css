@@ -223,3 +223,32 @@ a {
 		display: none;
 	}
 }
+
+
+/* Video and Camera Elements */
+#camera-feed {
+	position: absolute;
+	width: 100%;
+	height: 100%; /* Set the height to cover the entire viewport */
+	top: 0;
+	left: 0;
+	z-index: 998; /* A high z-index value to ensure it appears on top */
+	display: none; /* Hide it initially */
+	object-fit: contain;
+}
+
+#captureButton {
+	position: absolute;
+	z-index: 999; /* A high z-index value to ensure it appears on top */
+	bottom: 10px; /* Adjust this value for the desired distance from the bottom */
+	left: 50%; /* Center horizontally */
+	transform: translateX(-50%); /* Center horizontally */
+	cursor: pointer;
+	padding: 5px 15px;
+	background: var(--dark-color-a);
+	color: var(--light-color);
+	border: 0;
+	font-size: 17px;
+}
+
+

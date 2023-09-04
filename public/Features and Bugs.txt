@@ -20,6 +20,6 @@ Backlog:
 3. Online offline status (user state management)
 4. Reactions
 5. Push notification of chat received
-6. Image sharing
+6. Image sharing (done for camera via desktop. Need to debug for mobile)
 7. Video call (very tricky but try)
 8. Sign in flow - authentication
