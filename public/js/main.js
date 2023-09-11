@@ -142,6 +142,9 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         const track = stream.getVideoTracks()[0];
 
+        const videoDiv = document.createElement('div');
+        videoDiv.id='video-div';
+
         // Create a video element to display the live camera feed
         const video = document.createElement('video');
         video.id='camera-feed';
@@ -153,19 +156,19 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
         const context = canvas.getContext('2d');
 
         // Append the video element to the DOM so the user can see the camera feed
-        document.body.appendChild(video);
+        // document.body.appendChild(video);
 
         // Wait for the video to be loaded (you may want to add an event listener)
         await new Promise((resolve) => (video.onloadedmetadata = resolve));
 
         // Display the video feed to the user
-        video.style.display = 'block';
+        videoDiv.style.display = 'inline-block';
 
         // Create a "Capture" button
         const captureButton = document.createElement('button');
         captureButton.id='captureButton';
-        captureButton.classList.add('leavebtn');
-        captureButton.textContent = 'Capture';
+        captureButton.classList.add('leavebtn', 'capture-btn');
+        captureButton.innerHTML = '<i class="fas fa-camera"></i>'; // Add the camera icon
         document.body.appendChild(captureButton);
 
         // Event listener for capturing the image
@@ -193,10 +196,35 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
 
 
             // Remove the video and capture button (optional)
+            videoDiv.remove();
             video.remove();
             captureButton.remove();
+            dismissButton.remove();
         });
-    } catch (error) {
+
+        // Create a "Dismiss" button (close icon)
+        const dismissButton = document.createElement('i');
+        dismissButton.classList.add('fas', 'fa-times', 'close-button');
+        dismissButton.addEventListener('click', () => {
+            // Handle dismiss button click (e.g., close the camera feed)
+            stream.getTracks().forEach((track) => track.stop());
+            videoDiv.remove();
+            video.remove();
+            captureButton.remove();
+            dismissButton.remove();
+
+        });
+
+        // Append video, captureButton, and dismissButton to videoDiv
+        videoDiv.appendChild(video);
+        videoDiv.appendChild(captureButton);
+        videoDiv.appendChild(dismissButton);
+
+        // Append videoDiv to the body
+        document.body.appendChild(videoDiv);
+    }
+
+    catch (error) {
         console.error('Error accessing the camera:', error);
     }
 });

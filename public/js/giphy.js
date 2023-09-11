@@ -1,10 +1,11 @@
 // Replace 'YOUR_API_KEY' with your actual GIPHY API key
-const apiKey = 'kfROCKTKguiDAaSfl40ynCQ3Jvy5EnFH';
 
+// require("dotenv").config();
+// const giphyApiKey = process.env.GIPHY_API_KEY;
+const giphyApiKey='kfROCKTKguiDAaSfl40ynCQ3Jvy5EnFH';
 
 
 //Function to render giphy components
-
 function createGiphyComponents() {
     // Create the main container
     const container = document.createElement('div');
@@ -72,11 +73,12 @@ document.body.addEventListener('click', function (event)
     {
 
     console.log('search button clicked');
+    console.log(giphyApiKey);
 
     var searchInput = document.getElementById("search-input").value;
     console.log(searchInput);
 
-    const apiUrl = `https://api.giphy.com/v1/gifs/search?q=${searchInput}&api_key=${apiKey}`;
+    const apiUrl = `https://api.giphy.com/v1/gifs/search?q=${searchInput}&api_key=${giphyApiKey}`;
     console.log(apiUrl);
 
     searchGIPHY(apiUrl, function (gifs){
