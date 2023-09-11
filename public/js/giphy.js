@@ -82,9 +82,10 @@ document.body.addEventListener('click', function (event)
     searchGIPHY(apiUrl, function (gifs){
         console.log(gifs);
 
+        //Clear up the grid of the search result page
         document.getElementById('result').innerHTML="";
 
-        gifs.forEach((gif) => {
+        gifs.forEach((gif,index) => {
             const gifUrl = gif.images.fixed_height.url;
             const embedUrl = gif.embed_url;
 
@@ -96,13 +97,41 @@ document.body.addEventListener('click', function (event)
             const gifElement = document.createElement('img');
             gifElement.src = gifUrl;
 
+            // Set a data attribute to store the unique identifier or index
+            gifElement.dataset.gifIndex = index;
+
+
             gifLink.appendChild(gifElement);
-            console.log(gifLink);
+
+            // Add a click event listener to the GIF element
+            gifElement.addEventListener('click', function (event) {
+
+                //Prevent from opening another tab in the browser
+                event.preventDefault();
+                document.getElementById('giphy-components').style.display='none';
+                // Get the clicked GIF's index from the data attribute
+                const clickedIndex = this.dataset.gifIndex;
+
+                // Send the selected GIF as a chat message
+                sendSelectedGif(gifs[clickedIndex]);
+            });
+
+
 
             // Add the GIF element to your chat interface
             // (You might want to append it to a specific container)
             document.getElementById('result').appendChild(gifLink);
         });
+
+
+        //Function to send the important data to server when a gif is clicked upon
+        function sendSelectedGif(selectedGIF){
+            socket.emit('chatMessage', {
+                sender: username,
+                message: selectedGIF.images.fixed_height.url,
+                messageType: 'gif',
+            });
+        }
     });
 
     //Function to search GIPHY and send back JSON

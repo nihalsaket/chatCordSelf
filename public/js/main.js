@@ -58,6 +58,7 @@ chatForm.addEventListener('submit',(e)=>{
 
 //Render received message to the DOM
 function outputMessage(message){
+    //Create new div element for rendering the message unit
     const div = document.createElement('div');
     div.classList.add('message');
 
@@ -67,16 +68,24 @@ function outputMessage(message){
     } else {
         div.classList.add('friend-message');
     }
+    //Check If image received is a gif
+    if(message.messageType=='gif'){
 
-    if(message.messageType=='image'){
-
-        //Write code to render image in the application
-        console.log('Image received');
-
-        div.innerHTML= `<p class="meta">${message.sender} <span>${getLocalTime()}</span></p>${message.message.startsWith('data:image') ? `<img src="${message.message}" alt="Image" />` : `<p class="text">${message.message}</p>`}`;
+        console.log('gif received');
+        div.innerHTML = `<p class="meta">${message.sender} <span>${getLocalTime()}</span></p><img src="${message.message}" alt="Image" />`;
         document.querySelector('.chat-messages').appendChild(div);
-
     }
+    //Else check if the message type is image
+    else if(message.messageType=='image') {
+
+            //Write code to render image in the application
+            console.log('Image received');
+
+            div.innerHTML = `<p class="meta">${message.sender} <span>${getLocalTime()}</span></p>${message.message.startsWith('data:image') ? `<img src="${message.message}" alt="Image" />` : `<p class="text">${message.message}</p>`}`;
+            document.querySelector('.chat-messages').appendChild(div);
+        }
+
+    //Else its neither both
     else{
         console.log('Text Received');
         div.innerHTML=`<p class="meta">${message.sender} <span>${getLocalTime()}</span></p>
@@ -200,6 +209,7 @@ document.getElementById('gif').addEventListener('click', function () {
     // createGiphyComponents();
     // console.log(document.getElementById('dynamic-content'));
     document.getElementById('giphy-components').style.display='flex';
+
 
 
 
