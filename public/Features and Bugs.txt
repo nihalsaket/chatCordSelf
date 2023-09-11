@@ -23,3 +23,4 @@ Backlog:
 6. Image sharing (done for camera via desktop. Need to debug for mobile)
 7. Video call (very tricky but try)
 8. Sign in flow - authentication
+9. GIF (done)

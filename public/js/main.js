@@ -214,3 +214,16 @@ document.getElementById('gif').addEventListener('click', function () {
 
 
 });
+
+
+//Close feature for the gif-popup sheet
+document.getElementById('close-gif-popup').addEventListener('click',()=>{
+    //Clear the results pane and search field
+    document.getElementById('search-input').value='';
+    document.getElementById('result').innerHTML="";
+
+    //Make the sheet invisible
+    document.getElementById('giphy-components').style.display='none';
+
+
+});

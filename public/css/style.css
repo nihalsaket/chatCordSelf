@@ -320,3 +320,10 @@ a {
 	cursor: pointer;
 }
 
+#close-gif-popup {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 20px;
+	cursor: pointer;
+}
