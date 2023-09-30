@@ -1,0 +1,46 @@
+1. There is no difference between message received and message sent (done but can be updated a bit more)
+2. Name is not passed with message of the user (done)
+
+3. Users list is not getting updated. (done)
+   Array of users need to be maintained
+   Something needs to be emitted by server when the array is updated
+
+
+
+4. Secret key for entry
+5. Remove Room name (done)
+6. Better color theme (pictures)
+7.
+
+
+
+Backlog:
+1. Locally store history of chat for last one day
+2. Offline message to a user
+3. Online offline status (user state management)
+4. Reactions
+5. Push notification of chat received
+6. Image sharing (done for camera via desktop. Need to debug for mobile)
+7. Video call (very tricky but try) - No
+8. Sign in flow - authentication
+9. GIF (done)
+
+
+
+Prioritize list:
+1. Do not expose API key in GIT code ?
+The idea is to use .env file but its tricky. Will do it at the end.
+
+2. Profile management service - Username, password, etc.
+- How to use google sheet as a DB or something for free? I do not want to use heroku service.
+
+3. Google sign in service maybe
+
+4. Send message to users offline
+5. Mobile friendly - very imp
+6. Emoji selector and sender
+
+
+Sep 3rd week onwards
+1. Only front end and CSS changes to make the app look good
+

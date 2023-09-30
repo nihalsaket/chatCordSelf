@@ -34,8 +34,19 @@ a {
 	padding: 5px 15px;
 	background: var(--light-color);
 	color: var(--dark-color-a);
+	border-radius: 20px;
+	font-size: 17px;
+	height: 40px;
+	margin-left: auto;
+}
+.bigbutton {
+	cursor: pointer;
+	padding: 5px 15px;
+	background: var(--light-color);
+	color: var(--dark-color-a);
 	border: 0;
 	font-size: 17px;
+	border-radius: 20px;
 }
 
 /* Chat Page */
@@ -98,6 +109,24 @@ a {
 	border-radius: 5px;
 }
 
+.chat-messages .message.user-message{
+	align-self: flex-end !important;
+	background-color: var(--dark-color-a);
+	color: white;
+}
+
+.chat-messages .message.friend-message{
+	align-self: flex-start !important;
+	background-color: var(--light-color);
+	color: black;
+}
+
+.chat-messages .message.server-message{
+	align-self: center !important;
+	background-color: var(--light-color);
+	color: var(--dark-color-b);
+}
+
 .chat-messages .message .meta {
 	font-size: 15px;
 	font-weight: bold;
@@ -108,6 +137,12 @@ a {
 
 .chat-messages .message .meta span {
 	color: #777;
+}
+
+.chat-messages .message img {
+	max-width: 100%; /* Ensure images don't exceed their container */
+	border-radius: 5px; /* Apply a border radius to images */
+	margin: 5px 0; /* Add some spacing around images */
 }
 
 .chat-form-container {
@@ -124,6 +159,8 @@ a {
 	padding: 5px;
 	height: 40px;
 	flex: 1;
+	border-radius: 30px;
+	border: 1px solid #ccc;
 }
 
 /* Join Page */
@@ -186,4 +223,148 @@ a {
 	.chat-sidebar {
 		display: none;
 	}
+}
+
+
+/* Video and Camera Elements */
+
+#video-div {
+	position: fixed;
+	width: 100%;
+	height: 100%; /* Set the height to cover the entire viewport */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Center the div both horizontally and vertically */
+	z-index: 998; /* A high z-index value to ensure it appears on top */
+	display: none; /* Hide it initially */
+	object-fit: contain;
+}
+
+#camera-feed {
+	position: absolute;
+	width: 100%;
+	height: 100%; /* Set the height to cover the entire viewport */
+	top: 0;
+	left: 0;
+	object-fit: contain;
+}
+
+#captureButton {
+	position: absolute;
+	z-index: 999; /* A high z-index value to ensure it appears on top */
+	bottom: 10px; /* Adjust this value for the desired distance from the bottom */
+	left: 50%; /* Center horizontally */
+	transform: translateX(-50%); /* Center horizontally */
+	cursor: pointer;
+	padding: 5px 15px;
+	background: var(--dark-color-a);
+	color: var(--light-color);
+	border: 0;
+	font-size: 17px;
+}
+
+#giphy-components {
+	z-index: 999;
+	background: black;
+	margin: 150px 0 0 0;
+	padding: 0;
+	color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/*justify-content: center; !* Center horizontally *!*/
+	/*align-items: center; !* Center vertically *!*/
+	display: none;
+	height: calc(100% - 0px); /* Set a fixed height, adjust as needed */
+	overflow-y: scroll; /* Enable vertical scrolling */
+}
+
+#result{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(auto, 200px)); /* Adjust minmax width as needed */
+	gap: 10px; /* Adjust gap between images as needed */
+	justify-items: center; /* Center content horizontally within each grid cell */
+	align-items: center; /* Center content vertically within each grid cell */
+	padding: 20px; /* Add padding to separate from the search box */
+
+}
+
+#result{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center; /* Center content vertically within each grid cell */
+	padding: 20px; /* Add padding to separate from the search box */
+	gap: 10px;
+
+}
+
+
+#result img{
+	width: 100%;
+	max-width: 100%;
+	/*padding-top: 100%; !* Maintain a 1:1 aspect ratio (square) *!*/
+	background-size: cover; /* Zoom and crop the background image to fill the container */
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+/* Style the search box and button */
+#search-input {
+	width: 80%;
+	padding: 10px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid white;
+	background: transparent;
+	color: white;
+}
+
+#search {
+	padding: 10px 20px;
+	background: var(--dark-color-a);
+	color: var(--light-color);
+	border: 0;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+#close-gif-popup {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+/* Style the dismiss button */
+.close-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 20px;
+	cursor: pointer;
+	color: var(--dark-color-a); /* Adjust the close icon color */
+}
+
+
+/* Style the capture button */
+.capture-btn {
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--dark-color-a); /* Adjust the background color */
+	color: var(--light-color); /* Adjust the text color */
+	border: none;
+	border-radius: 50%; /* Make it round */
+	width: 50px; /* Adjust the width */
+	height: 50px; /* Adjust the height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px; /* Adjust the icon size */
+	cursor: pointer;
 }
