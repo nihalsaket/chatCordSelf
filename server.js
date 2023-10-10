@@ -26,7 +26,7 @@ io.on('connection',socket=>{
 
         //'servermessage' is an arbitrary event defined by coder
 
-        socket.emit('servermessage',`Welcome to Chatcord, ${receivedUsername}!`);
+        socket.emit('servermessage',`Welcome to Huppu+Ranu chat, ${receivedUsername}!`);
 
         //Broadcast when a user joins
         socket.broadcast.emit('servermessage',`${receivedUsername} has joined the chat`);
