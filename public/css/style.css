@@ -68,9 +68,11 @@ a {
 
 .chat-container {
 	background: #fff;
-	margin: 30px auto;
+	margin: 10px auto;
 	overflow: hidden;
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .chat-header {
@@ -87,8 +89,12 @@ a {
 
 .chat-main {
 	display: grid;
+	/*flex:1;*/
 	grid-template-columns: 1fr 3fr;
+	grid-template-rows: auto 1fr; /* Add this line to set chat-form-container to take the remaining vertical space */
+
 }
+
 
 .chat-sidebar {
 	background: linear-gradient(90deg, #CC0404 0%, #FED000 585.83%);
@@ -119,10 +125,11 @@ a {
 
 .chat-messages {
 	padding: 30px;
-	max-height: 500px;
+	/*flex:1;*/
+	min-height: calc(100vh - 180px);
+	max-height: calc(100vh - 180px);
 	overflow-y: scroll;
 	background: linear-gradient(to bottom right, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) top right / 50% 50% no-repeat;
-
 }
 
 .chat-messages .message {
@@ -196,6 +203,10 @@ a {
 .chat-form-container {
 	padding: 20px 30px;
 	background: linear-gradient(90deg, #CC0404 0%, #FED000 100%);
+	/*bottom: 0;*/
+	/*left: 0;*/
+	/*position: fixed;    !* Set the position to fixed *!*/
+	width: 100%;
 }
 
 .chat-form-container form {

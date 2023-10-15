@@ -50,6 +50,21 @@ CSS Backlog/Bugs:
 
 1. Make button more easy to scale
 2. Mobile specific testing
+
+- Color should fill all of mobile and not just a rectangle with a white space on top and bottom
+- Font or Rahu+HuppuChat should reduce for mobile
+- Leave Room button's text is not centre aligned
+- Chat form should extend vertically such that enter message is at the bottom of the screen and sticky
+- No space between buttons
+- Lot of space wasted on the bottom left beside chat bar on the left
+- Camera feed not showing up in chrome
+- Container of Camera is very ugly for now.
+- Need camera flip control for front and back
+- I want the app's header and chat form tag to be sticky at the bottom
+
 3. Camera UI update
 4. Giphy UI Update
+
+
+
 
