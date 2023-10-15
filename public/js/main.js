@@ -255,3 +255,4 @@ document.getElementById('close-gif-popup').addEventListener('click',()=>{
 
 
 });
+

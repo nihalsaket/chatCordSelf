@@ -305,8 +305,8 @@ a {
 	transform: translateX(-50%); /* Center horizontally */
 	cursor: pointer;
 	padding: 5px 15px;
-	background: var(--dark-color-a);
-	color: var(--light-color);
+	background: #F9BB00;
+	color: #FFFFFF;
 	border: 0;
 	font-size: 17px;
 }
@@ -394,7 +394,7 @@ a {
 	right: 10px;
 	font-size: 20px;
 	cursor: pointer;
-	color: var(--dark-color-a); /* Adjust the close icon color */
+	color: #CC0404; /* Adjust the close icon color */
 }
 
 
