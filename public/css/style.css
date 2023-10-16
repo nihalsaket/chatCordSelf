@@ -41,6 +41,7 @@ a {
 	text-decoration: none;
 }
 
+
 .btn {
 	cursor: pointer;
 	padding: 5px 15px;
@@ -49,9 +50,12 @@ a {
 	border-radius: 20px;
 	font-size: 17px;
 	height: 40px;
-	margin-left: auto;
+	margin-left: 10px;
 	border: 0;
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	display: flex;
+	justify-content: center; /* Center horizontally */
+	align-items: center; /* Center vertically */
 }
 .bigbutton {
 	cursor: pointer;
@@ -62,6 +66,7 @@ a {
 	border: 0;
 	font-size: 17px;
 	border-radius: 20px;
+	text-align: center;
 }
 
 /* Chat Page */
@@ -274,7 +279,7 @@ a {
 	width: 100%;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
 	.chat-main {
 		display: block;
 	}
@@ -282,6 +287,39 @@ a {
 	.chat-sidebar {
 		display: none;
 	}
+	.chat-form-container {
+		padding: 15px 10px;
+	}
+
+
+	.btn {
+		padding: 5px 10px;
+		border-radius: 20px;
+		font-size: 17px;
+		height: 40px;
+		margin-left: 7px;
+	}
+
+	.chat-messages {
+		padding: 10px;
+	}
+
+
+	.bigbutton {
+		padding: 10px 5px;
+		background: #FFF;
+		color: #F9BB00;
+		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+		border: 0;
+		font-size: 17px;
+		border-radius: 20px;
+		text-align: center;
+	}
+
+
+
+
+
 }
 
 
