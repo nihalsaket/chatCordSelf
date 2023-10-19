@@ -22,14 +22,25 @@
 	padding: 0;
 }
 
+/* Style for the footer element */
+#footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #333; /* Adjust the background color as needed */
+	color: #fff; /* Adjust text color as needed */
+	text-align: center;
+	padding: 10px; /* Adjust padding as needed */
+	z-index: 1000; /* Ensure it's above other content */
+}
+
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	background: #FFFFFF;
 
-	padding-bottom: constant(safe-area-inset-bottom); /* Windows */
 	padding-bottom: env(safe-area-inset-bottom); /* iOS */
-	padding-bottom: var(--safe-area-inset-bottom); /* Custom properties for future compatibility */
 	/*margin: 20px;*/
 }
 
@@ -318,6 +329,11 @@ a {
 		font-size: 17px;
 		border-radius: 20px;
 		text-align: center;
+	}
+
+	body {
+		padding-bottom: calc(constant(safe-area-inset-bottom) + 50px); /* Adjust as needed */
+		padding-bottom: calc(env(safe-area-inset-bottom) + 50px); /* Adjust as needed */
 	}
 
 

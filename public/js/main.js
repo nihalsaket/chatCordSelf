@@ -322,3 +322,22 @@ document.getElementById('close-gif-popup').addEventListener('click',()=>{
 
 });
 
+
+
+// JavaScript code to adjust content for Safari mobile navigation bar
+function adjustContentForNavigationBar() {
+    if (window.innerWidth <= 600) {
+        const footer = document.getElementById('footer');
+        const navigationBarHeight = window.innerHeight - document.documentElement.clientHeight;
+        footer.style.marginBottom = navigationBarHeight + 'px';
+    }
+
+    console.log('Some adjustment took place');
+}
+
+// Listen for window resize and orientation change events
+window.addEventListener('resize', adjustContentForNavigationBar);
+window.addEventListener('orientationchange', adjustContentForNavigationBar);
+
+// Call the function initially
+adjustContentForNavigationBar();
