@@ -78,7 +78,7 @@ a {
 .chat-container {
 	background: #fff;
 	margin: 10px auto;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -137,7 +137,7 @@ a {
 	/*flex:1;*/
 	/*overflow-y: scroll;*/
 	overflow-y: auto; /* Allow vertical scrolling within this container */
-
+	overscroll-behavior: contain;
 	background: linear-gradient(to bottom right, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) top right / 50% 50% no-repeat;
 }
 
@@ -152,19 +152,16 @@ a {
 
 .chat-messages .message.user-message{
 	align-self: flex-end !important;
-	/*background-color: var(--dark-color-a);*/
 	color: #050605;
 }
 
 .chat-messages .message.friend-message{
 	align-self: flex-start !important;
-	/*background-color: var(--light-color);*/
 	color: #050605;
 }
 
 .chat-messages .message.server-message{
 	align-self: center !important;
-	/*background-color: var(--light-color);*/
 	color: #050605;
 }
 
@@ -324,12 +321,6 @@ a {
 		border-radius: 20px;
 		text-align: center;
 	}
-
-	body {
-		padding-bottom: calc(constant(safe-area-inset-bottom) + 50px); /* Adjust as needed */
-		padding-bottom: calc(env(safe-area-inset-bottom) + 50px); /* Adjust as needed */
-	}
-
 
 
 
