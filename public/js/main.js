@@ -10,6 +10,8 @@ const username = urlParams.get('username');
 
 const socket = io();
 
+// let video; // Declare the video element at a higher scope
+
 
 socket.emit('username',username);
 //Message from server
@@ -54,6 +56,36 @@ chatForm.addEventListener('submit',(e)=>{
     e.target.elements.msg.focus();
 });
 
+function updateVideoSize() {
+    console.log('In Update Video Size function');
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    console.log(viewportWidth);
+    console.log(viewportHeight);
+
+    // Calculate the aspect ratio of the video
+    const videoAspectRatio = video.videoWidth / video.videoHeight;
+
+    // Calculate the new width and height based on the viewport size
+    let newWidth, newHeight;
+
+    if (viewportWidth / viewportHeight > videoAspectRatio) {
+        // The viewport is wider than the video's aspect ratio
+        newWidth = viewportHeight * videoAspectRatio;
+        newHeight = viewportHeight;
+    } else {
+        // The viewport is taller than the video's aspect ratio
+        newWidth = viewportWidth;
+        newHeight = viewportWidth / videoAspectRatio;
+    }
+
+    // Apply the new size to the video element
+    video.videoWidth = newWidth + 'px';
+    video.videoHeight = newHeight + 'px';
+    console.log(video.videoWidth);
+    console.log(video.videoHeight);
+}
 
 
 //Render received message to the DOM
@@ -134,7 +166,7 @@ function getLocalTime() {
     return now.toLocaleTimeString(undefined, options);
 }
 
-
+let video;
 
 // Event listener for capturing a photo and sending to server
 document.getElementById('capture-photo').addEventListener('click', async () => {
@@ -146,10 +178,15 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
         videoDiv.id='video-div';
 
         // Create a video element to display the live camera feed
-        const video = document.createElement('video');
+        video = document.createElement('video');
         video.id='camera-feed';
+
+        // updateVideoSize();
+
+
         video.srcObject = new MediaStream([track]);
         video.play();
+
 
         // Create a canvas element to capture the image
         const canvas = document.createElement('canvas');
@@ -158,11 +195,38 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
         // Append the video element to the DOM so the user can see the camera feed
         // document.body.appendChild(video);
 
+
+
+
+
+// Initial call to set the video size based on the current viewport
+
         // Wait for the video to be loaded (you may want to add an event listener)
-        await new Promise((resolve) => (video.onloadedmetadata = resolve));
+        await new Promise((resolve) =>
+        {video.onloadedmetadata = resolve
+        });
+
 
         // Display the video feed to the user
         videoDiv.style.display = 'inline-block';
+
+
+        video.style.width=window.innerWidth + 'px';
+        video.style.height=window.innerHeight+ 'px';
+
+        console.log(video);
+
+
+
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+
+
+        videoDiv.appendChild(video);
+
+        console.log(videoDiv);
+        console.log(video);
+
 
         // Create a "Capture" button
         const captureButton = document.createElement('button');
@@ -174,8 +238,10 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
         // Event listener for capturing the image
         captureButton.addEventListener('click', () => {
             // Set the canvas dimensions to match the video
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
+            console.log('Video html height ='+video.height);
+
+
+            console.log('Canvas height ='+canvas.height);
 
             // Draw the current video frame onto the canvas
             context.drawImage(video, 0, 0, canvas.width, canvas.height);

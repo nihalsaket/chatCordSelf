@@ -61,8 +61,14 @@ CSS Backlog/Bugs:
 - Container of Camera is very ugly for now.
 - Need camera flip control for front and back
 - I want the app's header and chat form tag to be sticky at the bottom - fixed
+- Navigation bar creating issues in safari
 
 3. Camera UI update
+
+- Mirror view for the feed - Done
+- Create a better looking container
+- Flip camera option - Deprio
+
 4. Giphy UI Update
 
 
