@@ -26,6 +26,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	background: #FFFFFF;
+
+	padding-bottom: constant(safe-area-inset-bottom); /* Windows */
+	padding-bottom: env(safe-area-inset-bottom); /* iOS */
+	padding-bottom: var(--safe-area-inset-bottom); /* Custom properties for future compatibility */
 	/*margin: 20px;*/
 }
 
