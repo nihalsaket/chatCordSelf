@@ -1,6 +1,11 @@
 const chatForm = document.getElementById('chat-form');
 
 const chatMessages = document.querySelector('.chat-messages');
+const chatHeader = document.querySelector('.chat-header');
+
+const chat_form_container = document.querySelector('.chat-form-container');
+
+
 console.log("trying to bring username");
 
 
@@ -39,7 +44,32 @@ socket.on('listusers',list=>{
     updateUserNamesList(userNameList);
 });
 
+//Adjust size of chat-messages block
+
+function adjustChatMessagesSize() {
+
+        const formHeight = chat_form_container.offsetHeight+chatHeader.offsetHeight;
+    chatMessages.style.minHeight = `calc(100vh - ${formHeight}px)`;
+    chatMessages.style.maxHeight = `calc(100vh - ${formHeight}px)`;
+
+    console.log(formHeight);
+
+
+    console.log('chatMessageHeight Adjusted');
+}
+
+adjustChatMessagesSize();
+
+
+
+
+
 //Message submit
+
+
+
+
+
 
 chatForm.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -324,20 +354,7 @@ document.getElementById('close-gif-popup').addEventListener('click',()=>{
 
 
 
-// JavaScript code to adjust content for Safari mobile navigation bar
-function adjustContentForNavigationBar() {
-    if (window.innerWidth <= 600) {
-        const footer = document.getElementById('footer');
-        const navigationBarHeight = window.innerHeight - document.documentElement.clientHeight;
-        footer.style.marginBottom = navigationBarHeight + 'px';
-    }
-
-    console.log('Some adjustment took place');
-}
-
 // Listen for window resize and orientation change events
-window.addEventListener('resize', adjustContentForNavigationBar);
-window.addEventListener('orientationchange', adjustContentForNavigationBar);
+window.addEventListener('resize', adjustChatMessagesSize);
+window.addEventListener('orientationchange', adjustChatMessagesSize);
 
-// Call the function initially
-adjustContentForNavigationBar();
