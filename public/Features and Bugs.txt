@@ -44,3 +44,33 @@ The idea is to use .env file but its tricky. Will do it at the end.
 Sep 3rd week onwards
 1. Only front end and CSS changes to make the app look good
 
+
+
+CSS Backlog/Bugs:
+
+1. Make button more easy to scale
+2. Mobile specific testing
+
+- Home Page: Color should fill all of mobile and not just a rectangle with a white space on top and bottom
+- Font or Rahu+HuppuChat should reduce for mobile - Later
+- Leave Room button's text is not centre aligned - Done
+- Chat form should extend vertically such that enter message is at the bottom of the screen and sticky - Done
+- No space between buttons - Fixed
+- Lot of space wasted on the bottom left beside chat bar on the left - fixed
+- Camera feed not showing up in chrome
+- Container of Camera is very ugly for now.
+- Need camera flip control for front and back
+- I want the app's header and chat form tag to be sticky at the bottom - fixed
+- Navigation bar creating issues in safari
+
+3. Camera UI update
+
+- Mirror view for the feed - Done
+- Create a better looking container
+- Flip camera option - Deprio
+
+4. Giphy UI Update
+
+
+5. Update homepage and make is customizable with pictures
+
