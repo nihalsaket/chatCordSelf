@@ -248,12 +248,15 @@ a {
 /* Join Page */
 .join-container {
 	max-width: 500px;
+	min-width: 300px;
 	color: #FFFFFF;
-	margin: 80px auto;
+	margin: 0 auto; /* Center horizontally */
+	position: absolute;
+	top: 50%; /* Center vertically */
+	left: 50%;
+	transform: translate(-50%, -50%); /* Center vertically and horizontally */
 	display: grid;
 	backdrop-filter: blur(5px);
-	/*background: url("../media/hp-bg engagement pic.jpg") no-repeat center center fixed;*/
-	/*background-size: cover;*/
 }
 
 .join-header {
@@ -263,6 +266,7 @@ a {
 	backdrop-filter: blur(5x);
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+	font-size: 10px;
 }
 
 .join-main {
@@ -351,6 +355,27 @@ a {
 		background-size: cover;
 	}
 
+	.join-header {
+		font-size: 14px;
+		padding: 5px;
+	}
+
+	.join-main {
+		padding: 10px
+	}
+
+	.join-container {
+		max-width: 500px;
+		min-width: 300px;
+		color: #FFFFFF;
+		margin: 0 auto; /* Center horizontally */
+		position: absolute;
+		bottom: 10%; /* Center vertically */
+		left: 50%;
+		transform: translate(-50%, 0%); /* Center vertically and horizontally */
+		display: grid;
+		backdrop-filter: blur(5px);
+	}
 
 
 
@@ -522,4 +547,29 @@ a {
 
 .chat-messages::-webkit-scrollbar-track {
 	background-color: transparent; /* Make the scrollbar track transparent */
+}
+
+#submitbutton {
+	cursor: pointer;
+	padding: 5px 15px;
+	background: linear-gradient(90deg, rgba(136, 183, 2, 0.75) 0%, rgba(254, 208, 0, 0.75) 100%);
+	color: #FFFFFF;
+	border-radius: 20px;
+	font-size: 20px;
+	height: 40px;
+	border: 0;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	display: flex;
+	justify-content: center; /* Center horizontally */
+	align-items: center;
+	width: 100%;
+}
+
+#username{
+	font-size: 16px;
+	padding: 5px;
+	height: 40px;
+	flex: 1;
+	border-radius: 10px;
+	border: 1px solid #ccc;
 }
