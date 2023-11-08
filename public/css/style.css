@@ -89,7 +89,7 @@ a {
 
 .chat-container {
 	background: #fff;
-	margin: 10px auto;
+	/*margin: 10px auto;*/
 	/*overflow: hidden;*/
 	height: 100vh;
 	display: flex;
@@ -149,7 +149,7 @@ a {
 	/*flex:1;*/
 	/*overflow-y: scroll;*/
 	overflow-y: auto; /* Allow vertical scrolling within this container */
-	overscroll-behavior: contain;
+	overscroll-behavior: none;
 	background: linear-gradient(to bottom right, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) top right / 50% 50% no-repeat;
 }
 
@@ -244,6 +244,17 @@ a {
 	border-radius: 10px;
 	border: 1px solid #ccc;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 /* Join Page */
 .join-container {
