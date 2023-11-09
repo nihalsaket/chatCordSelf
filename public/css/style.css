@@ -149,7 +149,7 @@ a {
 	/*flex:1;*/
 	/*overflow-y: scroll;*/
 	overflow-y: auto; /* Allow vertical scrolling within this container */
-	overscroll-behavior: none;
+	overscroll-behavior: contain;
 	background: linear-gradient(to bottom right, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) bottom right / 50% 50% no-repeat, linear-gradient(to bottom left, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) bottom left / 50% 50% no-repeat, linear-gradient(to top left, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) top left / 50% 50% no-repeat, linear-gradient(to top right, rgba(87, 117, 2, 0.05) 0%, rgba(87, 117, 2, 0.25) 50%) top right / 50% 50% no-repeat;
 }
 

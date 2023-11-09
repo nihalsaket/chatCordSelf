@@ -72,5 +72,5 @@ CSS Backlog/Bugs:
 4. Giphy UI Update
 
 
-5. Update homepage and make is customizable with pictures
+5. Update homepage and make is customizable with pictures - Done
 

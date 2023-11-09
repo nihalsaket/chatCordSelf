@@ -48,11 +48,14 @@ socket.on('listusers',list=>{
 
 function adjustChatMessagesSize() {
 
+    console.log('Height of chatHeader ',chatHeader.offsetHeight);
+    console.log('Height of chat Form container',chat_form_container.offsetHeight);
+
         const formHeight = chat_form_container.offsetHeight+chatHeader.offsetHeight;
     chatMessages.style.minHeight = `calc(100vh - ${formHeight}px)`;
     chatMessages.style.maxHeight = `calc(100vh - ${formHeight}px)`;
 
-    console.log(formHeight);
+    console.log(chatMessages.style.minHeight);
 
 
     console.log('chatMessageHeight Adjusted');
