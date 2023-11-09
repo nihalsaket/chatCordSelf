@@ -333,8 +333,10 @@ document.getElementById('capture-photo').addEventListener('click', async () => {
 
 
 //Event listener for GIFs button
-document.getElementById('gif').addEventListener('click', function () {
+document.getElementById('gif').addEventListener('click', function (event) {
     console.log('gif click listener worked');
+    event.preventDefault();
+
     // Call the createGiphyComponents function from giphy.js
     // createGiphyComponents();
     // console.log(document.getElementById('dynamic-content'));
