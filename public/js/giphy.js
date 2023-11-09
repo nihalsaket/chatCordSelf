@@ -79,7 +79,7 @@ document.body.addEventListener('click', function (event)
 
 {
 
-    if(event.target.id=='search')
+    if(event.target.id=='searchbtn')
     {
 
     console.log('search button clicked');
@@ -88,7 +88,7 @@ document.body.addEventListener('click', function (event)
     console.log(searchInput);
 
     const apiUrl = `https://api.giphy.com/v1/gifs/search?q=${searchInput}&api_key=${giphyApiKey}`;
-    // console.log(apiUrl);
+    console.log(apiUrl);
 
     searchGIPHY(apiUrl, function (gifs){
         console.log(gifs);
