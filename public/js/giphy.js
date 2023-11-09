@@ -81,6 +81,7 @@ document.body.addEventListener('click', function (event)
 
     if(event.target.id=='searchbtn')
     {
+        event.preventDefault();
 
     console.log('search button clicked');
 
