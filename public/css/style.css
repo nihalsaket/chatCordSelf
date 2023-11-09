@@ -28,7 +28,7 @@ body {
 	font-size: 16px;
 	background: #FFFFFF;
 
-	padding-bottom: env(safe-area-inset-bottom); /* iOS */
+	/*padding-bottom: env(safe-area-inset-bottom); !* iOS *!*/
 	/*margin: 20px;*/
 }
 
