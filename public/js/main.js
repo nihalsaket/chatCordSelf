@@ -200,7 +200,8 @@ function getLocalTime() {
 let video;
 
 // Event listener for capturing a photo and sending to server
-document.getElementById('capture-photo').addEventListener('click', async () => {
+document.getElementById('capture-photo').addEventListener('click', async (event) => {
+    event.preventDefault();
     try {
         // Request access to the user's camera
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
