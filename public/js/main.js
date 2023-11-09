@@ -45,7 +45,6 @@ socket.on('listusers',list=>{
 });
 
 //Adjust size of chat-messages block
-
 function adjustChatMessagesSize() {
 
     console.log('Height of chatHeader ',chatHeader.offsetHeight);
@@ -69,11 +68,6 @@ adjustChatMessagesSize();
 
 //Message submit
 
-
-
-
-
-
 chatForm.addEventListener('submit',(e)=>{
     e.preventDefault();
 
@@ -88,6 +82,10 @@ chatForm.addEventListener('submit',(e)=>{
     e.target.elements.msg.value = '';
     e.target.elements.msg.focus();
 });
+
+
+
+
 
 function updateVideoSize() {
     console.log('In Update Video Size function');
@@ -204,9 +202,14 @@ let video;
 // Event listener for capturing a photo and sending to server
 document.getElementById('capture-photo').addEventListener('click', async () => {
     try {
+        // Request access to the user's camera
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+
+        // Get the video track from the stream
         const track = stream.getVideoTracks()[0];
 
+
+        // Create a div element to contain the video and buttons
         const videoDiv = document.createElement('div');
         videoDiv.id='video-div';
 

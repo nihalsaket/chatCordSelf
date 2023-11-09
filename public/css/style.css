@@ -346,13 +346,13 @@ a {
 
 
 	.bigbutton {
-		padding: 10px 5px;
+		padding: 10px 10px;
 		background: #FFF;
 		color: #F9BB00;
 		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 		border: 0;
-		font-size: 17px;
-		border-radius: 20px;
+		font-size: 20px;
+		border-radius: 10px;
 		text-align: center;
 	}
 
@@ -439,8 +439,21 @@ a {
 	align-items: center;
 	cursor: pointer;
 }
+/* Style the dismiss button camera */
+.close-button {
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	font-size: 50px;
+	cursor: pointer;
+	color: #CC0404; /* Adjust the close icon color */
+}
+
+
+/*GIF page*/
 
 #giphy-components {
+	border-radius: 15px 15px 0px 0px;
 	z-index: 999;
 	background: black;
 	margin: 150px 0 0 0;
@@ -456,17 +469,18 @@ a {
 	display: none;
 	height: calc(100% - 0px); /* Set a fixed height, adjust as needed */
 	overflow-y: scroll; /* Enable vertical scrolling */
+	box-shadow: 0px -4px 5px 0px rgba(65, 65, 65, 0.50);
 }
 
-#result{
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(auto, 200px)); /* Adjust minmax width as needed */
-	gap: 10px; /* Adjust gap between images as needed */
-	justify-items: center; /* Center content horizontally within each grid cell */
-	align-items: center; /* Center content vertically within each grid cell */
-	padding: 20px; /* Add padding to separate from the search box */
+/*#result{*/
+/*	display: grid;*/
+/*	grid-template-columns: repeat(auto-fill, minmax(auto, 200px)); !* Adjust minmax width as needed *!*/
+/*	gap: 10px; !* Adjust gap between images as needed *!*/
+/*	justify-items: center; !* Center content horizontally within each grid cell *!*/
+/*	align-items: center; !* Center content vertically within each grid cell *!*/
+/*	padding: 20px; !* Add padding to separate from the search box *!*/
 
-}
+/*}*/
 
 #result{
 	display: flex;
@@ -489,14 +503,25 @@ a {
 }
 
 /* Style the search box and button */
+
+/* Style the search box and button container */
+#search-container {
+	text-align: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 #search-input {
 	width: 80%;
+	flex: 1; /* Allow the input to grow and take available space */
 	padding: 10px;
 	font-size: 18px;
 	border: none;
 	border-bottom: 1px solid white;
-	background: transparent;
-	color: white;
+	background: #ffffff;
+	color: black;
+	margin: 10px;
 }
 
 #search {
@@ -516,15 +541,7 @@ a {
 	cursor: pointer;
 }
 
-/* Style the dismiss button */
-.close-button {
-	position: absolute;
-	top: 50px;
-	right: 50px;
-	font-size: 50px;
-	cursor: pointer;
-	color: #CC0404; /* Adjust the close icon color */
-}
+
 
 
 /* Style the capture button */

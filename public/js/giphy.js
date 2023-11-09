@@ -4,62 +4,72 @@
 // const giphyApiKey = process.env.GIPHY_API_KEY;
 const giphyApiKey='kfROCKTKguiDAaSfl40ynCQ3Jvy5EnFH';
 
-
+console.log('updated giphy.js loaded')
 //Function to render giphy components
-function createGiphyComponents() {
-    // Create the main container
-    const container = document.createElement('div');
-    container.id = 'giphy-components';
-
-    // Create and append the H3 element
-    const h3 = document.createElement('h3');
-    h3.id = 'banner';
-    h3.textContent = 'Giphy JS Components';
-    container.appendChild(h3);
-
-    // Create the section element
-    const section = document.createElement('section');
-
-    // Create and append the H4 element
-    const h4 = document.createElement('h4');
-    h4.textContent = 'Search Gif';
-    section.appendChild(h4);
-
-    // Create and append the div element for the GIF
-    const gifDiv = document.createElement('div');
-    gifDiv.id = 'gif';
-    section.appendChild(gifDiv);
-
-    // Create and append the input element
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.id = 'search-input';
-    input.placeholder = 'Enter your search term';
-    input.required = true;
-    section.appendChild(input);
-
-    // Create and append the search button
-    const button = document.createElement('button');
-    button.id = 'search';
-    button.textContent = 'Search';
-    section.appendChild(button);
-
-    // Create line breaks
-    section.appendChild(document.createElement('br'));
-    section.appendChild(document.createElement('br'));
-
-    // Create and append the div element for the result
-    const resultDiv = document.createElement('div');
-    resultDiv.id = 'result';
-    section.appendChild(resultDiv);
-
-    // Append the section to the container
-    container.appendChild(section);
-
-    // Append the container to the placeholder element in your source HTML
-    const placeholder = document.getElementById('dynamic-content');
-    placeholder.appendChild(container);
-}
+// function createGiphyComponents() {
+//     // Create the main container
+//     const container = document.createElement('div');
+//     container.id = 'giphy-components';
+//
+//     // Create and append the H3 element
+//     const h3 = document.createElement('h3');
+//     h3.id = 'banner';
+//     h3.textContent = 'Giphy JS Components';
+//     container.appendChild(h3);
+//
+//     // Create the section element
+//     const section = document.createElement('section');
+//
+//     // Create and append the H4 element
+//     const h4 = document.createElement('h4');
+//     h4.textContent = 'Search Gif';
+//     section.appendChild(h4);
+//
+//     // Create and append the div element for the GIF
+//     const gifDiv = document.createElement('div');
+//     gifDiv.id = 'gif';
+//     section.appendChild(gifDiv);
+//
+//     // Create a div container for search input and button
+//     const searchContainer = document.createElement('div');
+//     searchContainer.id = 'search-container';
+//
+//     // Create and append the input element
+//     const input = document.createElement('input');
+//     input.type = 'text';
+//     input.id = 'search-input';
+//     input.placeholder = 'Enter your search term';
+//     input.required = true;
+//
+//
+//     // Create and append the search button
+//     const button = document.createElement('button');
+//     button.id = 'search';
+//     button.textContent = 'Search';
+//
+//     // Append input and button to the search container
+//     searchContainer.appendChild(input);
+//     searchContainer.appendChild(button);
+//     console.log('input appended to searchContainer')
+//
+//     section.appendChild(searchContainer);
+//
+//     // Create line breaks
+//     section.appendChild(document.createElement('br'));
+//     section.appendChild(document.createElement('br'));
+//
+//     // Create and append the div element for the result
+//     const resultDiv = document.createElement('div');
+//     resultDiv.id = 'result';
+//     section.appendChild(resultDiv);
+//
+//     // Append the section to the container
+//     container.appendChild(section);
+//
+//     // Append the container to the placeholder element in your source HTML
+//     const placeholder = document.getElementById('dynamic-content');
+//     placeholder.appendChild(container);
+// }
 
 
 
@@ -73,13 +83,12 @@ document.body.addEventListener('click', function (event)
     {
 
     console.log('search button clicked');
-    console.log(giphyApiKey);
 
     var searchInput = document.getElementById("search-input").value;
     console.log(searchInput);
 
     const apiUrl = `https://api.giphy.com/v1/gifs/search?q=${searchInput}&api_key=${giphyApiKey}`;
-    console.log(apiUrl);
+    // console.log(apiUrl);
 
     searchGIPHY(apiUrl, function (gifs){
         console.log(gifs);
@@ -111,8 +120,15 @@ document.body.addEventListener('click', function (event)
                 //Prevent from opening another tab in the browser
                 event.preventDefault();
                 document.getElementById('giphy-components').style.display='none';
+
+
+
                 // Get the clicked GIF's index from the data attribute
                 const clickedIndex = this.dataset.gifIndex;
+
+                //Clear the results pane and search field
+                document.getElementById('search-input').value='';
+                document.getElementById('result').innerHTML="";
 
                 // Send the selected GIF as a chat message
                 sendSelectedGif(gifs[clickedIndex]);
